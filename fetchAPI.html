@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Product Api </title>
+</head>
+<body>
+    <script>
+        let prod = {
+    "id": 91,
+    "title": "iPhone X plus Pro",
+    "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+    "price": 127000,
+    "discountPercentage": 17.94,
+    "rating": 4.44,
+    "stock": 34,
+    "brand": "Apple",
+    "category": "smartphones",
+    "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+    "images": [
+      "https://i.dummyjson.com/data/products/2/1.jpg",
+      "https://i.dummyjson.com/data/products/2/2.jpg",
+      "https://i.dummyjson.com/data/products/2/3.jpg",
+      "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+    ]
+  }
+
+  fetch("http://localhost:8000/products",{
+    method:"POST",
+    body:JSON.stringify(prod),
+    headers:{
+        "Content-Type":"application/json"
+    }
+  }
+  
+  )
+
+  .then((response)=>{
+    return response.json()
+  })
+  .then((data)=>{
+    console.log(data)
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+    </script>
+</body>
+</html>
